@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>MCDONALD'S</title>
+  </head>
+  <body>
+    <div id="titale">
+      <h1>VIRTULE MCDONALD'S</h1>
+    </div>
+
+    <div id="show">
+      <form action="" id="order-panal">
+        <h2 id="order-title">Choose Your Food</h2>
+        <br /><input type="checkbox" name="" id="item1" /><label> Pizza</label>
+        <br /><input type="checkbox" name="" id="item2" /><label>
+          Pav Bhaji</label
+        >
+        <br /><input type="checkbox" name="" id="item3" /><label>
+          Hakka Noodles</label
+        >
+        <br /><input type="checkbox" name="" id="item4" /><label> Samosa</label>
+        <br /><input type="checkbox" name="" id="item5" /><label>
+          Dal Fry</label
+        >
+        <br /><button id="order">Order Food</button>
+      </form>
+
+      <div id="image-section">
+        <h2 id="food-name">You Order is Ready</h2>
+        <img src="pizza.webp" style="display: none" id="imgss1" alt="" />
+        <img src="Pav_Bhaji.webp" style="display: none" id="imgss2" alt="" />
+        <img
+          src="Hakka_Noodles.webp"
+          style="display: none"
+          id="imgss3"
+          alt=""
+        />
+        <img src="Samosa.webp" style="display: none" id="imgss4" alt="" />
+        <img src="Dal_Fry.jpg" style="display: none" id="imgss5" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  let order = document
+    .getElementById("order")
+    .addEventListener("click", getOrder);
+
+  function checkstatus() {
+    return true;
+  }
+
+  function getOrder(e) {
+    event.preventDefault();
+
+    const myPromise = new Promise(function (resolve, reject) {
+      let status = false;
+
+      setTimeout(function () {
+        status = checkstatus();
+        if (status == true) {
+          resolve("Order is confirmed..");
+        } else {
+          reject("Order is not confiremd");
+        }
+      }, 500);
+    });
+
+    myPromise
+      .then(function (res) {
+        console.log("res:", res);
+
+        let ids = Math.random();
+        console.log("ids:", ids);
+
+        let a1 = document.getElementById("item1").checked;
+        let a2 = document.getElementById("item2").checked;
+        let a3 = document.getElementById("item3").checked;
+        let a4 = document.getElementById("item4").checked;
+        let a5 = document.getElementById("item5").checked;
+        // console.log(a1, a2, a3, a4, a5);
+
+        let b1 = (b2 = b3 = b4 = b5 = false);
+
+        if (a1) {
+          console.log("a1");
+          let time = Math.random() * 10 * 1000;
+
+          setTimeout(function () {
+            b1 = true;
+            b2 = false;
+            b3 = false;
+            b4 = false;
+            b5 = false;
+            getdata();
+          }, time);
+        }
+
+        if (a2) {
+          console.log("a2");
+
+          let time = Math.random() * 10 * 1000;
+
+          setTimeout(function () {
+            b1 = false;
+            b2 = true;
+            b3 = false;
+            b4 = false;
+            b5 = false;
+            getdata();
+          }, time);
+        }
+
+        if (a3) {
+          console.log("a3");
+
+          let time = Math.random() * 10 * 1000;
+
+          setTimeout(function () {
+            b1 = false;
+            b2 = false;
+            b3 = true;
+            b4 = false;
+            b5 = false;
+            getdata();
+          }, time);
+        }
+
+        if (a4) {
+          console.log("a4");
+
+          let time = Math.random() * 10 * 1000;
+
+          setTimeout(function () {
+            b1 = false;
+            b2 = false;
+            b3 = false;
+            b4 = true;
+            b5 = false;
+            getdata();
+          }, time);
+        }
+
+        if (a5) {
+          console.log("a5");
+
+          let time = Math.random() * 10 * 1000;
+
+          setTimeout(function () {
+            b1 = false;
+            b2 = false;
+            b3 = false;
+            b4 = false;
+            b5 = true;
+            getdata();
+          }, time);
+        }
+
+        const getdata = () => {
+          if (b1) {
+            console.log("b1");
+
+            document.getElementById("imgss1").style.display = "block";
+            document.getElementById("imgss2").style.display = "none";
+            document.getElementById("imgss3").style.display = "none";
+            document.getElementById("imgss4").style.display = "none";
+            document.getElementById("imgss5").style.display = "none";
+            document.getElementById("food-name").innerText =
+              "You Pizza is Ready";
+          }
+          if (b2) {
+            console.log("b2");
+
+            document.getElementById("imgss1").style.display = "none";
+            document.getElementById("imgss2").style.display = "block";
+            document.getElementById("imgss3").style.display = "none";
+            document.getElementById("imgss4").style.display = "none";
+            document.getElementById("imgss5").style.display = "none";
+            document.getElementById("food-name").innerText =
+              "You Pav Bhaji is Ready";
+          }
+          if (b3) {
+            console.log("b3");
+
+            document.getElementById("imgss1").style.display = "none";
+            document.getElementById("imgss2").style.display = "none";
+            document.getElementById("imgss3").style.display = "block";
+            document.getElementById("imgss4").style.display = "none";
+            document.getElementById("imgss5").style.display = "none";
+            document.getElementById("food-name").innerText =
+              "You Hakka Noodles is Ready";
+          }
+          if (b4) {
+            console.log("b4");
+
+            document.getElementById("imgss1").style.display = "none";
+            document.getElementById("imgss2").style.display = "none";
+            document.getElementById("imgss3").style.display = "none";
+            document.getElementById("imgss4").style.display = "block";
+            document.getElementById("imgss5").style.display = "none";
+            document.getElementById("food-name").innerText =
+              "You Samosa is Ready";
+          }
+          if (b5) {
+            console.log("b5");
+
+            document.getElementById("imgss1").style.display = "none";
+            document.getElementById("imgss2").style.display = "none";
+            document.getElementById("imgss3").style.display = "none";
+            document.getElementById("imgss4").style.display = "none";
+            document.getElementById("imgss5").style.display = "block";
+            document.getElementById("food-name").innerText =
+              "You Dal Fry is Ready";
+          }
+        };
+      })
+      .catch(function (err) {
+        console.log("err:", err);
+      });
+  }
+</script>
